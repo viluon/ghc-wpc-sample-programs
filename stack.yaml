@@ -3,16 +3,19 @@ resolver: lts-15.6
 allow-newer: true
 
 packages:
-- 'simple-app'
-- 'simple-lib'
+- 'alex-3.2.5'
 
 apply-ghc-options: everything
 ghc-options:
-  "$everything": -split-sections -O0
+  "$everything": -split-sections -O2
+
+system-ghc: true
+extra-path:
+  - /home/viluon/Projects/ghc-whole-program-compiler-project/ghc-wpc/_build/stage1/bin
 
 # use custom ext-stg whole program compiler GHC
-compiler:     ghc-8.11.0.20200527
-ghc-variant:  ext-stg-whole-program-compiler
+compiler:     ghc-8.11.0.20210324
+# ghc-variant:  ext-stg-whole-program-compiler
 
 setup-info-locations: []
 setup-info:
